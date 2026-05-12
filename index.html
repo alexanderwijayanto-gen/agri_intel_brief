@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agri-Intelligence Report | Indonesia April–Mei 2026</title>
+  <style>
+    :root{
+      --bg:#07120d; --panel:#0d1c14; --panel2:#10251a; --text:#eef8f1; --muted:#aabbb0;
+      --green:#76d68b; --lime:#b7e778; --amber:#ffd166; --orange:#f4a261; --red:#ff6b6b; --blue:#78c6ff;
+      --border:rgba(255,255,255,.10); --shadow:0 22px 60px rgba(0,0,0,.32);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;background:radial-gradient(circle at 15% 10%,rgba(118,214,139,.18),transparent 32%),radial-gradient(circle at 86% 5%,rgba(255,209,102,.16),transparent 28%),linear-gradient(135deg,#07120d 0%,#0b1711 54%,#07120d 100%);color:var(--text);line-height:1.55}
+    .wrap{max-width:1180px;margin:auto;padding:28px 18px 72px}.hero{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:28px;padding:34px;background:linear-gradient(135deg,rgba(16,37,26,.94),rgba(7,18,13,.86));box-shadow:var(--shadow)}
+    .hero:after{content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(183,231,120,.28),transparent 68%)}
+    .kicker{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid rgba(118,214,139,.25);border-radius:999px;background:rgba(118,214,139,.09);color:var(--green);font-weight:700;font-size:13px;letter-spacing:.03em;text-transform:uppercase}.kicker span{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 16px var(--green)}
+    h1{margin:18px 0 10px;font-size:clamp(34px,5vw,66px);line-height:.98;letter-spacing:-.05em}.subtitle{max-width:780px;color:var(--muted);font-size:18px}.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.3fr .7fr;gap:22px;align-items:end}.stamp{justify-self:end;min-width:245px;border:1px solid var(--border);border-radius:22px;padding:18px;background:rgba(255,255,255,.05);backdrop-filter:blur(12px)}.stamp b{display:block;font-size:30px}.stamp small{color:var(--muted)}
+    .controls{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}.search{flex:1;min-width:260px}.search input,.select{width:100%;padding:13px 14px;border:1px solid var(--border);border-radius:15px;background:rgba(255,255,255,.06);color:var(--text);outline:none}.select{max-width:220px}.btn{border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.06);color:var(--text);padding:11px 15px;cursor:pointer;font-weight:700}.btn.active{background:linear-gradient(135deg,var(--green),var(--lime));color:#0b1711;border-color:transparent}.grid{display:grid;gap:16px}.metrics{grid-template-columns:repeat(4,minmax(0,1fr));margin:18px 0 18px}.metric{border:1px solid var(--border);border-radius:22px;padding:18px;background:rgba(255,255,255,.055);box-shadow:0 10px 30px rgba(0,0,0,.14)}.metric .label{color:var(--muted);font-size:13px}.metric .value{font-size:30px;font-weight:850;letter-spacing:-.04em}.metric .note{font-size:12px;color:var(--muted)}
+    .section-title{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:34px 0 14px}.section-title h2{margin:0;font-size:26px;letter-spacing:-.03em}.section-title p{margin:0;color:var(--muted);font-size:14px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.card{border:1px solid var(--border);border-radius:24px;padding:20px;background:linear-gradient(180deg,rgba(255,255,255,.065),rgba(255,255,255,.035));box-shadow:0 12px 34px rgba(0,0,0,.18);transition:.2s transform,.2s border-color}.card:hover{transform:translateY(-2px);border-color:rgba(118,214,139,.38)}.card-head{display:flex;justify-content:space-between;gap:12px;align-items:start}.tag{display:inline-flex;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:800}.risk-high{background:rgba(255,107,107,.15);color:#ff8f8f}.risk-med{background:rgba(255,209,102,.15);color:#ffdf82}.risk-low{background:rgba(118,214,139,.14);color:#91e6a2}.card h3{margin:0 0 8px;font-size:20px}.card p{margin:0 0 14px;color:var(--muted)}.bullets{margin:0;padding-left:18px;color:#dcebe1}.bullets li{margin:7px 0}.impact{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.pill{font-size:12px;color:#dbeee1;border:1px solid var(--border);border-radius:999px;padding:6px 9px;background:rgba(255,255,255,.05)}
+    .insight{display:grid;grid-template-columns:1fr 1fr;gap:16px}.panel{border:1px solid var(--border);border-radius:24px;padding:22px;background:rgba(255,255,255,.052)}.panel h3{margin-top:0}.heatmap{display:grid;gap:10px}.heatrow{display:grid;grid-template-columns:160px 1fr 80px;gap:12px;align-items:center}.bar{height:13px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--green),var(--amber),var(--red));width:var(--w)}.score{text-align:right;font-weight:800}.timeline{position:relative;padding-left:18px}.timeline:before{content:"";position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:rgba(118,214,139,.3)}.titem{position:relative;margin:0 0 16px}.titem:before{content:"";position:absolute;left:-20px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--green)}.titem b{display:block}.titem span{color:var(--muted);font-size:13px}.actions{grid-template-columns:repeat(3,minmax(0,1fr))}.action{border:1px solid var(--border);border-radius:20px;padding:18px;background:rgba(255,255,255,.05)}.action b{display:block;margin-bottom:8px;color:var(--lime)}.footer{margin-top:32px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.hidden{display:none!important}.empty{display:none;text-align:center;color:var(--muted);padding:32px;border:1px dashed var(--border);border-radius:20px}.print{position:fixed;right:18px;bottom:18px;z-index:9;background:linear-gradient(135deg,var(--green),var(--lime));color:#06110b;border:0;border-radius:999px;padding:14px 18px;font-weight:900;box-shadow:0 12px 32px rgba(0,0,0,.32);cursor:pointer}
+    @media (max-width:850px){.hero-grid,.insight{grid-template-columns:1fr}.stamp{justify-self:stretch}.metrics,.cards,.actions{grid-template-columns:1fr}.heatrow{grid-template-columns:110px 1fr 48px}.hero{padding:24px}.select{max-width:none}.print{position:static;margin-top:18px;width:100%}}
+    @media print{body{background:#fff;color:#111}.wrap{max-width:none}.btn,.controls,.print{display:none}.hero,.card,.panel,.metric,.action{background:#fff;color:#111;box-shadow:none;border-color:#ddd}.subtitle,.metric .label,.metric .note,.card p,.section-title p,.footer,.titem span{color:#555}.hidden{display:block!important}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker"><span></span>Agri-Intelligence Brief</div>
+          <h1>Indonesia Agriculture Risk Outlook</h1>
+          <p class="subtitle">Laporan intelijen pertanian berbasis temuan berita April–Mei 2026: risiko iklim, hama penyakit, geopolitik input, serta kebijakan dan produksi pangan nasional.</p>
+          <div class="controls" id="categoryNav" role="tablist" aria-label="Navigasi kategori laporan">
+            <div class="search"><input id="search" placeholder="Cari: pupuk, El Niño, cabai, wereng…" /></div>
+            <button type="button" class="btn active" data-filter="all" aria-selected="true">Semua</button>
+            <button type="button" class="btn" data-filter="iklim" aria-selected="false">Iklim</button>
+            <button type="button" class="btn" data-filter="hama" aria-selected="false">Hama</button>
+            <button type="button" class="btn" data-filter="input" aria-selected="false">Input</button>
+            <button type="button" class="btn" data-filter="kebijakan" aria-selected="false">Kebijakan</button>
+          </div>
+        </div>
+        <aside class="stamp">
+          <small>Periode Observasi</small>
+          <b>Apr–Mei 2026</b>
+          <small>Prioritas: kesiapan kemarau, proteksi OPT, stabilisasi input, dan respons harga komoditas.</small>
+        </aside>
+      </div>
+    </section>
+
+    <section class="grid metrics" aria-label="Ringkasan indikator utama">
+      <div class="metric"><div class="label">Peluang El Niño</div><div class="value">70–90%</div><div class="note">Sinyal transisi dari La Niña lemah</div></div>
+      <div class="metric"><div class="label">Kenaikan pestisida</div><div class="value">20–30%</div><div class="note">Maret–April 2026</div></div>
+      <div class="metric"><div class="label">Harga urea global</div><div class="value">+86%</div><div class="note">Dibanding awal 2026</div></div>
+      <div class="metric"><div class="label">Harga beras dunia</div><div class="value">-44,2%</div><div class="note">Pasca stop impor beras RI</div></div>
+    </section>
+
+    <div class="section-title">
+      <div><h2>Executive Intelligence Summary</h2><p>Empat vektor risiko utama yang perlu dipantau oleh pelaku agribisnis, pemerintah daerah, dan rantai pasok.</p></div>
+    </div>
+
+    <section class="grid cards" id="cards">
+      <article class="card" data-cat="iklim" data-text="iklim bmkg la nina el nino godzilla kekeringan banjir sawah rorotan kbb kemarau zom">
+        <div class="card-head"><h3>Iklim: Kemarau Panjang & Volatilitas Air</h3><span class="tag risk-high">Risiko Tinggi</span></div>
+        <p>Indikator iklim mengarah pada tekanan air yang meningkat, dengan potensi El Niño kuat dan kemarau lebih panjang.</p>
+        <ul class="bullets"><li>La Niña lemah awal 2026 berpotensi beralih ke El Niño.</li><li>80% sawah KBB rawan kekeringan.</li><li>Sawah Rorotan mengalami penurunan panen 50% akibat banjir Januari 2026.</li><li>7% ZOM sudah memasuki kemarau per Maret 2026.</li></ul>
+        <div class="impact"><span class="pill">Air irigasi</span><span class="pill">Produktivitas padi</span><span class="pill">Kalender tanam</span></div>
+      </article>
+
+      <article class="card" data-cat="hama" data-text="hama penyakit opt penggerek batang padi wereng coklat ulat grayak spodoptera ntt aceh thrips antraknosa cabai bawang merah bulai jagung">
+        <div class="card-head"><h3>Hama & Penyakit: OPT Menguat Saat Cuaca Ekstrem</h3><span class="tag risk-high">Risiko Tinggi</span></div>
+        <p>El Niño dan perubahan kelembapan menciptakan jendela risiko untuk ledakan OPT pada padi, jagung, cabai, dan bawang.</p>
+        <ul class="bullets"><li>El Niño dikaitkan dengan potensi ledakan penggerek batang padi dan wereng coklat.</li><li>Ulat grayak aktif di NTT; wereng menyerang padi Abdya, Aceh.</li><li>Thrips dapat menyebabkan kehilangan hasil hingga 23% dan aktif saat kemarau.</li><li>Antraknosa mengancam cabai dan bawang merah pada kondisi lembap.</li></ul>
+        <div class="impact"><span class="pill">Padi</span><span class="pill">Jagung</span><span class="pill">Hortikultura</span><span class="pill">Biaya proteksi</span></div>
+      </article>
+
+      <article class="card" data-cat="input" data-text="geopolitik input pestisida china minyak konflik aporopi produk palsu plastik pupuk urea selat hormuz fosfat sulfur npk sukabumi subsidi">
+        <div class="card-head"><h3>Input Pertanian: Inflasi Biaya & Risiko Pasok</h3><span class="tag risk-high">Risiko Tinggi</span></div>
+        <p>Ketergantungan impor bahan aktif dan gangguan geopolitik meningkatkan risiko harga serta ketersediaan pestisida, plastik, dan pupuk.</p>
+        <ul class="bullets"><li>Pestisida naik 20–30%; bahan aktif disebut 100% impor dari China.</li><li>Produk pestisida palsu meningkat.</li><li>Harga plastik naik 20% dalam sebulan, biji plastik global +26%.</li><li>Urea global +86%; NPK langka di Sukabumi dengan harga Rp17.000/kg.</li></ul>
+        <div class="impact"><span class="pill">Margin petani</span><span class="pill">Harga saprotan</span><span class="pill">Keaslian produk</span><span class="pill">Logistik pupuk</span></div>
+      </article>
+
+      <article class="card" data-cat="kebijakan" data-text="kebijakan produksi swasembada pangan stop impor beras harga dunia surplus jagung cabai bawang cetak sawah apbn cadangan pangan harga cabai">
+        <div class="card-head"><h3>Kebijakan & Produksi: Swasembada vs Volatilitas Harga</h3><span class="tag risk-med">Risiko Sedang</span></div>
+        <p>Kebijakan swasembada dan cadangan pangan memperkuat narasi produksi, namun komoditas hortikultura tetap rentan terhadap lonjakan harga.</p>
+        <ul class="bullets"><li>Stop impor beras diumumkan pada Januari 2026.</li><li>Harga beras dunia turun dari USD 660 ke USD 368/ton.</li><li>Target surplus: jagung 4,7 juta ton; cabai besar +87 ribu ton; bawang merah +53 ribu ton.</li><li>Cabai rawit merah mencapai Rp84.000/kg dan cabai merah keriting Rp59.900/kg.</li></ul>
+        <div class="impact"><span class="pill">Cadangan pangan</span><span class="pill">Harga konsumen</span><span class="pill">Produksi domestik</span><span class="pill">Inflasi pangan</span></div>
+      </article>
+    </section>
+    <div class="empty" id="empty">Tidak ada temuan yang sesuai dengan filter atau kata kunci.</div>
+
+    <section class="section-title"><div><h2>Risk Heatmap</h2><p>Skor indikatif untuk membantu prioritisasi monitoring. Nilai disusun dari intensitas dampak dan kedekatan waktu temuan.</p></div></section>
+    <section class="insight">
+      <div class="panel">
+        <h3>Peta Prioritas Risiko</h3>
+        <div class="heatmap">
+          <div class="heatrow"><span>Ketersediaan pupuk</span><div class="bar"><div class="fill" style="--w:92%"></div></div><span class="score">92</span></div>
+          <div class="heatrow"><span>Kekeringan sawah</span><div class="bar"><div class="fill" style="--w:88%"></div></div><span class="score">88</span></div>
+          <div class="heatrow"><span>Ledakan OPT</span><div class="bar"><div class="fill" style="--w:85%"></div></div><span class="score">85</span></div>
+          <div class="heatrow"><span>Harga cabai</span><div class="bar"><div class="fill" style="--w:76%"></div></div><span class="score">76</span></div>
+          <div class="heatrow"><span>Harga beras</span><div class="bar"><div class="fill" style="--w:48%"></div></div><span class="score">48</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Timeline Intelijen</h3>
+        <div class="timeline">
+          <div class="titem"><b>Jan 2026</b><span>Stop impor beras diumumkan; banjir Rorotan menekan panen; wereng menyerang padi Abdya.</span></div>
+          <div class="titem"><b>Feb 2026</b><span>Ulat grayak aktif di NTT; impor plastik RI tercatat US$873,2 juta/bulan.</span></div>
+          <div class="titem"><b>Mar 2026</b><span>7% ZOM masuk kemarau; produk pestisida palsu meningkat.</span></div>
+          <div class="titem"><b>Apr 2026</b><span>Risiko penggerek dan wereng meningkat; batas kenaikan harga pestisida ditetapkan.</span></div>
+          <div class="titem"><b>Mei 2026</b><span>NPK langka di Sukabumi; harga cabai rawit merah mencapai Rp84.000/kg.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-title"><div><h2>Rekomendasi Aksi 30–90 Hari</h2><p>Langkah praktis untuk mengubah sinyal risiko menjadi keputusan operasional.</p></div></section>
+    <section class="grid actions">
+      <div class="action"><b>1. Water & Planting Readiness</b>Prioritaskan audit sumber air, pompanisasi, embung, dan penyesuaian kalender tanam di wilayah rawan kekeringan.</div>
+      <div class="action"><b>2. OPT Early Warning</b>Perkuat monitoring wereng, penggerek, ulat grayak, thrips, bulai, dan antraknosa dengan ambang kendali yang jelas.</div>
+      <div class="action"><b>3. Input Procurement Shield</b>Amankan stok pupuk, pestisida, dan plastik; lakukan verifikasi produk untuk menekan risiko palsu.</div>
+      <div class="action"><b>4. Price Watch</b>Pantau cabai, NPK, urea, dan pestisida sebagai indikator dini tekanan biaya dan inflasi pangan.</div>
+      <div class="action"><b>5. Supplier Diversification</b>Kurangi eksposur terhadap sumber impor tunggal, khususnya bahan aktif pestisida dan bahan baku pupuk.</div>
+      <div class="action"><b>6. Local Response Room</b>Bentuk dashboard kabupaten/kota untuk menggabungkan sinyal iklim, OPT, pasokan input, dan harga pasar.</div>
+    </section>
+
+    <footer class="footer">
+      <span>Sumber: file “Temuan Riset — Berita Pertanian Indonesia April–Mei 2026”.</span>
+      <span>HTML mandiri — dapat dibuka offline, dicetak, atau dipublikasikan sebagai halaman statis.</span>
+    </footer>
+    <button class="print" onclick="window.print()">Cetak / Simpan PDF</button>
+  </main>
+  <script>
+    (function(){
+      const byId = (id) => document.getElementById(id);
+      const nav = byId('categoryNav');
+      const search = byId('search');
+      const empty = byId('empty');
+      const cards = Array.from(document.querySelectorAll('#cards .card'));
+      const buttons = Array.from(document.querySelectorAll('[data-filter]'));
+      let active = 'all';
+
+      function getText(card){
+        return ((card.textContent || '') + ' ' + (card.getAttribute('data-text') || '')).toLowerCase();
+      }
+
+      function setButtonState(filter){
+        buttons.forEach((btn) => {
+          const isActive = btn.getAttribute('data-filter') === filter;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+      }
+
+      function updateVisibility(){
+        const q = (search.value || '').trim().toLowerCase();
+        let shown = 0;
+        cards.forEach((card) => {
+          const category = card.getAttribute('data-cat');
+          const categoryMatch = active === 'all' || category === active;
+          const textMatch = !q || getText(card).includes(q);
+          const visible = categoryMatch && textMatch;
+          card.hidden = !visible;
+          card.classList.toggle('hidden', !visible);
+          card.style.display = visible ? '' : 'none';
+          if (visible) shown += 1;
+        });
+        empty.style.display = shown ? 'none' : 'block';
+      }
+
+      function applyFilter(filter, shouldScroll){
+        active = filter || 'all';
+        setButtonState(active);
+        updateVisibility();
+        if (history.replaceState) {
+          const hash = active === 'all' ? '#semua' : '#' + active;
+          history.replaceState(null, '', hash);
+        }
+        if (shouldScroll) {
+          document.getElementById('cards').scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+      }
+
+      if (nav) {
+        nav.addEventListener('click', function(event){
+          const btn = event.target.closest('[data-filter]');
+          if (!btn) return;
+          event.preventDefault();
+          applyFilter(btn.getAttribute('data-filter'), true);
+        });
+      }
+
+      if (search) {
+        search.addEventListener('input', updateVisibility);
+        search.addEventListener('keydown', function(event){
+          if (event.key === 'Escape') {
+            search.value = '';
+            updateVisibility();
+          }
+        });
+      }
+
+      const initial = (location.hash || '').replace('#','').toLowerCase();
+      if (['iklim','hama','input','kebijakan'].includes(initial)) {
+        applyFilter(initial, false);
+      } else {
+        applyFilter('all', false);
+      }
+    })();
+  </script>
+</body>
+</html>
